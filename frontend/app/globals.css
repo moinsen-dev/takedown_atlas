@@ -1,0 +1,16 @@
+@import '../../takedown-atlas-brand-starter-kit/tokens/css-variables.css';
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans, 'Inter', system-ui, sans-serif);
+  background: var(--brand-bg);
+  color: var(--brand-slate);
+}
+
+* {
+  box-sizing: border-box;
+}

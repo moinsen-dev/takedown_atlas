@@ -1,0 +1,9 @@
+Brand Assets License
+
+© 2025 Takedown Atlas contributors.
+
+- Code snippets in this kit: Apache-2.0.
+- Visual assets (logos, icons, banners): CC BY 4.0.
+- The name “Takedown Atlas” may be protected as a trademark in the future; this kit does not grant trademark rights.
+
+Where feasible, include attribution “Takedown Atlas Brand Kit (CC BY 4.0)”.

@@ -1,0 +1,14 @@
+{
+  "brand": {
+    "primary": "#0B3B5F",
+    "accent": "#FFB200",
+    "teal": "#1DA7A1",
+    "slate": "#334155",
+    "bg": "#F6F8FA",
+    "dark": "#0F172A",
+    "success": "#16A34A",
+    "danger": "#DC2626",
+    "warning": "#F59E0B",
+    "info": "#0284C7"
+  }
+}
