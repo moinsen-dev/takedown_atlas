@@ -1,0 +1,64 @@
+# GitHub Pages Configuration for Takedown Atlas
+
+# Site settings
+title: "Takedown Atlas"
+description: "Open-source platform mapping Google review removals. Privacy-preserving transparency to reveal patterns and support research into takedown practices."
+baseurl: "/takedown_atlas"
+url: "https://moinsen-dev.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: null
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+  - package-lock.json
+  - backend/
+  - frontend/
+  - infrastructure/
+  - scripts/
+  - takedown-atlas-brand-starter-kit/
+  - test-emails/
+  - .github/
+  - .gitignore
+  - .pre-commit-config.yaml
+  - AGENTS.md
+  - CLAUDE.md
+  - CONTRIBUTORS.md
+  - LICENSE-CHANGELOG.md
+  - State-Tracker.md
+  - prd.md
+
+# Include specific files in the docs folder
+include:
+  - assets/
+  - _config.yml
+
+# SEO and meta
+author: "Takedown Atlas Team"
+twitter:
+  username: takedownatlas
+lang: en
+
+# Plugin settings
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections
+collections_dir: docs
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      author: "Takedown Atlas Team"
