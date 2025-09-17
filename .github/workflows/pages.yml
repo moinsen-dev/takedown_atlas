@@ -3,7 +3,7 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
-      - main
+      - develop
     paths:
       - "docs/**"
   workflow_dispatch:
@@ -23,6 +23,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    if: false  # Disabled until CI issues are resolved
     steps:
       - name: Checkout
         uses: actions/checkout@v4

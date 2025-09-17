@@ -1,42 +1,60 @@
 services:
   postgres:
     image: postgis/postgis:16-3.4
+    container_name: ${PROJECT_NAME:-takedown_atlas}_postgres
     restart: unless-stopped
     environment:
-      POSTGRES_DB: takedown_atlas
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
+      POSTGRES_DB: ${POSTGRES_DB:-takedown_atlas}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
     ports:
-      - '5432:5432'
+      - '${POSTGRES_PORT:-5432}:5432'
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - ${PROJECT_NAME:-takedown_atlas}_postgres_data:/var/lib/postgresql/data
+    networks:
+      - ${PROJECT_NAME:-takedown_atlas}_network
 
   redis:
     image: redis:7-alpine
+    container_name: ${PROJECT_NAME:-takedown_atlas}_redis
     restart: unless-stopped
     ports:
-      - '6379:6379'
+      - '${REDIS_PORT:-6379}:6379'
+    networks:
+      - ${PROJECT_NAME:-takedown_atlas}_network
 
   minio:
     image: minio/minio:latest
+    container_name: ${PROJECT_NAME:-takedown_atlas}_minio
     restart: unless-stopped
     environment:
-      MINIO_ROOT_USER: minio
-      MINIO_ROOT_PASSWORD: minio123
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minio}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minio123}
     command: server /data --console-address ':9001'
     ports:
-      - '9000:9000'
-      - '9001:9001'
+      - '${MINIO_API_PORT:-9000}:9000'
+      - '${MINIO_CONSOLE_PORT:-9001}:9001'
     volumes:
-      - minio-data:/data
+      - ${PROJECT_NAME:-takedown_atlas}_minio_data:/data
+    networks:
+      - ${PROJECT_NAME:-takedown_atlas}_network
 
   mailhog:
     image: mailhog/mailhog:v1.0.1
+    container_name: ${PROJECT_NAME:-takedown_atlas}_mailhog
     restart: unless-stopped
     ports:
-      - '1025:1025'
-      - '8025:8025'
+      - '${MAILHOG_SMTP_PORT:-1025}:1025'
+      - '${MAILHOG_WEB_PORT:-8025}:8025'
+    networks:
+      - ${PROJECT_NAME:-takedown_atlas}_network
 
 volumes:
-  postgres-data: {}
-  minio-data: {}
+  ${PROJECT_NAME:-takedown_atlas}_postgres_data:
+    external: false
+  ${PROJECT_NAME:-takedown_atlas}_minio_data:
+    external: false
+
+networks:
+  ${PROJECT_NAME:-takedown_atlas}_network:
+    driver: bridge
