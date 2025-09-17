@@ -1,17 +1,23 @@
 :root {
-  --brand-primary: #0B3B5F;
-  --brand-accent: #FFB200;
-  --brand-teal: #1DA7A1;
+  --brand-primary: #0b3b5f;
+  --brand-accent: #ffb200;
+  --brand-teal: #1da7a1;
   --brand-slate: #334155;
-  --brand-bg: #F6F8FA;
-  --brand-dark: #0F172A;
-  --brand-success: #16A34A;
-  --brand-danger: #DC2626;
-  --brand-warning: #F59E0B;
-  --brand-info: #0284C7;
+  --brand-bg: #f6f8fa;
+  --brand-dark: #0f172a;
+  --brand-success: #16a34a;
+  --brand-danger: #dc2626;
+  --brand-warning: #f59e0b;
+  --brand-info: #0284c7;
 }
 body {
   color: var(--brand-slate);
   background: var(--brand-bg);
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    sans-serif;
 }

@@ -6,16 +6,21 @@ from uuid import UUID
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session
 
-from ...models import Business, IncidentOutcome, Submission, SubmissionStatus
+from ...models import Account, AccountRole, Business, IncidentOutcome, Submission, SubmissionStatus
 from ...schemas.moderation import ModerationQueueItem, PublishIncidentRequest
+from ...services.security import require_role
 from ...services.submission import list_moderation_queue, publish_incident
-from ..deps import get_db
+from ..deps import get_current_account, get_db
 
 router = APIRouter(prefix="/moderation", tags=["moderation"])
 
 
 @router.get("/queue", response_model=list[ModerationQueueItem])
-def moderation_queue(db: Session = Depends(get_db)) -> list[ModerationQueueItem]:
+def moderation_queue(
+  db: Session = Depends(get_db),
+  account: Account = Depends(get_current_account),
+) -> list[ModerationQueueItem]:
+  require_role(account.role.value, (AccountRole.VERIFIER.value, AccountRole.ADMIN.value))
   submissions = list_moderation_queue(db)
   items: list[ModerationQueueItem] = []
   for submission in submissions:
@@ -37,7 +42,9 @@ def publish_submission(
   submission_id: UUID,
   payload: PublishIncidentRequest,
   db: Session = Depends(get_db),
+  account: Account = Depends(get_current_account),
 ) -> dict:
+  require_role(account.role.value, (AccountRole.VERIFIER.value, AccountRole.ADMIN.value))
   submission = db.get(Submission, submission_id)
   if not submission:
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Submission not found")

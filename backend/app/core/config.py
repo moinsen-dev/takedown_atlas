@@ -4,6 +4,8 @@ from typing import List
 
 from pydantic import AnyHttpUrl, BaseSettings, Field
 
+from ..models.account import AccountRole
+
 
 class Settings(BaseSettings):
   api_v1_prefix: str = "/v1"
@@ -37,7 +39,12 @@ class Settings(BaseSettings):
 
   mapbox_token: str | None = None
   magic_link_sender: str = "noreply@takedownatlas.org"
+  smtp_host: str = "localhost"
+  smtp_port: int = 1025
+  mailgun_signing_key: str = "test-signing-key"
   base_url: str = "http://localhost:8000"
+  magic_link_allowed_domains: List[str] = Field(default_factory=list)
+  magic_link_default_role: str = AccountRole.RESEARCHER.value
 
   class Config:
     env_file = ".env"

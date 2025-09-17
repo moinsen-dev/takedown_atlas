@@ -4,6 +4,7 @@ from datetime import datetime
 from sqlalchemy import event
 
 from .base import BaseTable
+from .account import Account, AccountRole
 from .incident import (
   Business,
   BusinessClaim,
@@ -37,6 +38,8 @@ def _update_timestamp(mapper, connection, target):  # type: ignore[override]
 __all__ = [
   "Attachment",
   "ActorRole",
+  "Account",
+  "AccountRole",
   "Business",
   "BusinessClaim",
   "BusinessClaimStatus",

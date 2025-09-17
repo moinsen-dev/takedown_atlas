@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { submitNotice } from '@/lib/api';
+import { useState } from "react";
+import { submitNotice } from "@/lib/api";
 
 function encodeBase64(text: string): string {
   const encoder = new TextEncoder();
   const bytes = encoder.encode(text);
-  let binary = '';
+  let binary = "";
   bytes.forEach((byte) => {
     binary += String.fromCharCode(byte);
   });
@@ -14,8 +14,8 @@ function encodeBase64(text: string): string {
 }
 
 export default function SubmitPage() {
-  const [email, setEmail] = useState('');
-  const [rawNotice, setRawNotice] = useState('');
+  const [email, setEmail] = useState("");
+  const [rawNotice, setRawNotice] = useState("");
   const [status, setStatus] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -27,14 +27,14 @@ export default function SubmitPage() {
       const payload = {
         reporter_email: email,
         raw_notice: encodeBase64(rawNotice),
-        channel: 'upload',
+        channel: "upload",
         consent_public_dataset: true,
-        consent_contact: false
+        consent_contact: false,
       };
       const response = await submitNotice(payload);
       setStatus(`Submitted! Save your status token: ${response.status_token}`);
     } catch (error) {
-      setStatus('Submission failed. Please try again.');
+      setStatus("Submission failed. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -42,9 +42,12 @@ export default function SubmitPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
-      <h1 className="text-3xl font-semibold text-brand-dark">Submit a removal notice</h1>
+      <h1 className="text-3xl font-semibold text-brand-dark">
+        Submit a removal notice
+      </h1>
       <p className="mt-3 text-sm text-brand-slate/80">
-        Forward the removal email by pasting the headers and body below. Moderators will verify authenticity before anything goes public.
+        Forward the removal email by pasting the headers and body below.
+        Moderators will verify authenticity before anything goes public.
       </p>
       <form onSubmit={handleSubmit} className="mt-8 space-y-6">
         <label className="block text-sm font-medium text-brand-dark">
@@ -74,7 +77,7 @@ export default function SubmitPage() {
           disabled={loading}
           className="rounded-full bg-brand-primary px-6 py-3 text-sm font-semibold text-white shadow-brand hover:bg-brand-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {loading ? 'Submitting...' : 'Submit notice securely'}
+          {loading ? "Submitting..." : "Submit notice securely"}
         </button>
       </form>
       {status && (

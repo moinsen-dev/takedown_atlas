@@ -55,3 +55,18 @@ export type ModerationQueueEntry = {
   authenticity_score: number | null;
   queue_received_at: string;
 };
+
+export type AccountRole = "verifier" | "admin" | "researcher";
+
+export type MagicLinkRequest = {
+  email: string;
+};
+
+export type AuthSession = {
+  access_token: string;
+  token_type: string;
+  account_id: string;
+  role: AccountRole;
+  expires_at: string;
+  display_name?: string | null;
+};

@@ -3,6 +3,7 @@
 This kit contains lightweight, production-ready brand assets for MVPs, docs, and social posts.
 
 ## Contents
+
 - **logo/**: SVG logomark, primary/reversed logo, PNG icons (favicon, maskable, app icon)
 - **tokens/**: color tokens (JSON), CSS variables, Tailwind preset
 - **social/**: Open Graph banner (1200×630 SVG)
@@ -10,11 +11,13 @@ This kit contains lightweight, production-ready brand assets for MVPs, docs, and
 - **usage/**: brand guidelines (voice, do/don’t, spacing)
 
 ## Quick Start
+
 - Use `logo/takedown-atlas-logo-primary.svg` on light backgrounds; use `logo/takedown-atlas-logo-reversed.svg` on dark backgrounds.
 - Include `tokens/css-variables.css` and the Tailwind preset to stay on-brand.
 - Social sharing: use `social/og-banner.svg`.
 
 ## Colors
+
 ```json
 {
   "primary": "#0B3B5F",
@@ -27,10 +30,12 @@ This kit contains lightweight, production-ready brand assets for MVPs, docs, and
 ```
 
 ## Typography
+
 - Headings & UI: Inter (or system-ui fallback)
 - Code: JetBrains Mono (or system monospace)
 
 ## Tagline
+
 **Transparency for removed reviews.**
 
 ---

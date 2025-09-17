@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import maplibregl from 'maplibre-gl';
-import 'maplibre-gl/dist/maplibre-gl.css';
+import { useEffect, useRef } from "react";
+import maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
 
 type Incident = {
   id: string;
@@ -29,9 +29,9 @@ export function IncidentsMap({ incidents }: Props) {
 
     const map = new maplibregl.Map({
       container: mapContainer.current,
-      style: 'https://demotiles.maplibre.org/style.json',
+      style: "https://demotiles.maplibre.org/style.json",
       center: [9.9937, 53.5511],
-      zoom: 4
+      zoom: 4,
     });
 
     mapRef.current = map;
@@ -55,20 +55,34 @@ export function IncidentsMap({ incidents }: Props) {
     incidents
       .filter((incident) => incident.longitude && incident.latitude)
       .forEach((incident) => {
-        const marker = new maplibregl.Marker({ color: '#0B3B5F' });
+        const marker = new maplibregl.Marker({ color: "#0B3B5F" });
         marker
-          .setLngLat([incident.longitude as number, incident.latitude as number])
+          .setLngLat([
+            incident.longitude as number,
+            incident.latitude as number,
+          ])
           .setPopup(
             new maplibregl.Popup({ offset: 12 }).setHTML(
-              `<strong>${incident.summary ?? 'Removal notice'}</strong><br />${new Date(
-                incident.incident_date
-              ).toLocaleDateString()}${incident.reason_code ? `<br />Reason: ${incident.reason_code}` : ''}`
-            )
+              `<strong>${
+                incident.summary ?? "Removal notice"
+              }</strong><br />${new Date(
+                incident.incident_date,
+              ).toLocaleDateString()}${
+                incident.reason_code
+                  ? `<br />Reason: ${incident.reason_code}`
+                  : ""
+              }`,
+            ),
           )
           .addTo(map);
         markersRef.current.push(marker);
       });
   }, [incidents]);
 
-  return <div ref={mapContainer} className="h-[500px] w-full overflow-hidden rounded-3xl border border-brand-slate/10" />;
+  return (
+    <div
+      ref={mapContainer}
+      className="h-[500px] w-full overflow-hidden rounded-3xl border border-brand-slate/10"
+    />
+  );
 }

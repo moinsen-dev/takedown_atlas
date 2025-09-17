@@ -10,6 +10,7 @@ from sqlmodel import Field, Relationship
 from .base import BaseTable
 
 if TYPE_CHECKING:
+  from .account import Account
   from .submission import Submission
 
 
@@ -28,9 +29,12 @@ class Reporter(BaseTable, table=True):
 class MagicLinkToken(BaseTable, table=True):
   __tablename__ = "magic_link_tokens"
 
-  reporter_id: UUID = Field(foreign_key="reporters.id", nullable=False)
+  reporter_id: UUID | None = Field(default=None, foreign_key="reporters.id")
+  account_id: UUID | None = Field(default=None, foreign_key="accounts.id")
   token_hash: str = Field(nullable=False, index=True)
   expires_at: datetime = Field(nullable=False, index=True)
   used_at: Optional[datetime] = Field(default=None, nullable=True)
+  one_time: bool = Field(default=True, nullable=False)
 
-  reporter: Reporter = Relationship(back_populates="magic_links")
+  reporter: Optional[Reporter] = Relationship(back_populates="magic_links")
+  account: Optional["Account"] = Relationship(back_populates="magic_links")
