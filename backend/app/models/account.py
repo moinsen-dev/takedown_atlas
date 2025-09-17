@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import TYPE_CHECKING, List, Optional
+from typing import TYPE_CHECKING, Optional
 
 from sqlmodel import Field, Relationship
 
@@ -27,4 +27,4 @@ class Account(BaseTable, table=True):
   display_name: Optional[str] = Field(default=None, nullable=True)
   last_login_at: Optional[datetime] = Field(default=None, nullable=True)
 
-  magic_links: List["MagicLinkToken"] = Relationship(back_populates="account")
+  magic_links: list["MagicLinkToken"] = Relationship(back_populates="account")

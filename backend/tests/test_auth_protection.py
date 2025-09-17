@@ -5,10 +5,10 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlmodel import Session, SQLModel, create_engine
 
-import backend.app.models  # noqa: F401 ensure models are registered
-from backend.app.api.deps import get_db
-from backend.app.main import create_app
-from backend.app.models import (
+import app.models  # noqa: F401 ensure models are registered
+from app.api.deps import get_db
+from app.main import create_app
+from app.models import (
   Account,
   AccountRole,
   Reporter,
@@ -16,7 +16,7 @@ from backend.app.models import (
   SubmissionChannel,
   SubmissionStatus,
 )
-from backend.app.services.security import create_access_token, hash_token
+from app.services.security import create_access_token, hash_token
 
 
 @pytest.fixture()

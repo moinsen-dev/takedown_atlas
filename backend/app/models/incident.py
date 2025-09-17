@@ -3,10 +3,11 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import TYPE_CHECKING, List, Optional
+from typing import TYPE_CHECKING, Any, Dict, List, Optional
 from uuid import UUID
 
-from sqlmodel import Field, Relationship
+from sqlalchemy import JSON
+from sqlmodel import Column, Field, Relationship
 
 from .base import BaseTable
 
@@ -87,4 +88,4 @@ class LeaderboardSnapshot(BaseTable, table=True):
   period_start: datetime = Field(nullable=False)
   period_end: datetime = Field(nullable=False)
   leaderboard_type: str = Field(nullable=False)
-  payload: dict = Field(default_factory=dict, sa_column_kwargs={"nullable": False})
+  payload: Dict[str, Any] = Field(default_factory=dict, sa_column=Column(JSON, nullable=False))

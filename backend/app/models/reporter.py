@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import TYPE_CHECKING, List, Optional
+from typing import TYPE_CHECKING, Optional
 from uuid import UUID
 
 from sqlmodel import Field, Relationship
@@ -22,8 +22,8 @@ class Reporter(BaseTable, table=True):
   consent_public_dataset: bool = Field(default=True, nullable=False)
   consent_contact: bool = Field(default=False, nullable=False)
 
-  submissions: List["Submission"] = Relationship(back_populates="reporter")
-  magic_links: List["MagicLinkToken"] = Relationship(back_populates="reporter")
+  submissions: list["Submission"] = Relationship(back_populates="reporter")
+  magic_links: list["MagicLinkToken"] = Relationship(back_populates="reporter")
 
 
 class MagicLinkToken(BaseTable, table=True):
