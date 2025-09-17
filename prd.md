@@ -196,7 +196,7 @@ MOD[Moderators]-->DB
 
 ---
 
-## 12) Implementation Snapshot (June 2024)
+## 12) Implementation Snapshot (June 2025)
 
 The repository now contains a functional MVP scaffold aligned with this PRD:
 

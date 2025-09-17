@@ -1,6 +1,6 @@
 # 📌 Takedown Atlas — State Tracker
 
-_Last updated: 2024-09-18_
+_Last updated: 2025-09-18_
 
 ## 🖥️ Frontend
 

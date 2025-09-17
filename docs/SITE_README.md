@@ -5,6 +5,7 @@ This directory contains the GitHub Pages website for the Takedown Atlas project,
 ## 🎯 Purpose
 
 The GitHub Pages site serves as:
+
 - **Project showcase** — Overview of features and capabilities
 - **Development transparency** — Current progress and roadmap
 - **Brand demonstration** — Implementation of design system and brand guidelines
@@ -33,6 +34,7 @@ docs/
 The site implements the Takedown Atlas brand guidelines:
 
 ### Colors
+
 - **Primary**: Deep Atlantic Blue (`#0B3B5F`) — trust & research
 - **Accent**: Amber (`#FFB200`) — highlights & warnings
 - **Teal**: `#1DA7A1` — supporting accent
@@ -41,10 +43,12 @@ The site implements the Takedown Atlas brand guidelines:
 - **Dark**: `#0F172A` — dark background
 
 ### Typography
+
 - **Font Family**: Inter (Google Fonts)
 - **Weights**: 400 (regular), 500 (medium), 600 (semibold), 700 (bold)
 
 ### Logo Usage
+
 - Primary logo on light backgrounds
 - Reversed logo on dark backgrounds
 - Minimum 18px height for logomark
@@ -53,23 +57,27 @@ The site implements the Takedown Atlas brand guidelines:
 ## ✨ Features
 
 ### Responsive Design
+
 - Mobile-first approach
 - Breakpoints: 480px, 768px, 1200px
 - Flexible grid layouts
 
 ### Accessibility
+
 - WCAG AA contrast compliance
 - Focus indicators for keyboard navigation
 - Reduced motion support
 - Semantic HTML structure
 
 ### Performance
+
 - Optimized CSS with CSS variables
 - Compressed images
 - Minimal JavaScript footprint
 - Progressive enhancement
 
 ### Interactive Elements
+
 - Smooth scrolling navigation
 - Scroll-triggered animations
 - Header hide/show on scroll
@@ -84,7 +92,9 @@ The site automatically deploys via GitHub Actions when changes are pushed to the
 3. **Deploy**: Site updates at `https://moinsen-dev.github.io/takedown_atlas/`
 
 ### Manual Deployment
+
 To deploy manually:
+
 1. Enable GitHub Pages in repository settings
 2. Set source to "GitHub Actions"
 3. Push changes to trigger workflow
@@ -108,18 +118,22 @@ bundle exec jekyll serve
 ## 📝 Content Guidelines
 
 ### Voice & Tone
+
 - Neutral, evidence-based, non-accusatory
 - Professional but approachable
 - Focus on transparency and research utility
 
 ### Copy Standards
+
 - Use active voice
 - Keep sentences concise
 - Include clear calls-to-action
 - Reference brand guidelines for terminology
 
 ### Updates
+
 When updating content:
+
 1. Follow brand voice guidelines
 2. Ensure mobile responsiveness
 3. Test accessibility features

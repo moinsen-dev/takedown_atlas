@@ -1,64 +1,18 @@
-# GitHub Pages Configuration for Takedown Atlas
+# GitHub Pages - Static HTML Configuration
+# This configuration is minimal since we're using pure HTML/CSS/JS
 
-# Site settings
+# Site metadata (used by GitHub for repository info)
 title: "Takedown Atlas"
-description: "Open-source platform mapping Google review removals. Privacy-preserving transparency to reveal patterns and support research into takedown practices."
-baseurl: "/takedown_atlas"
+description: "Turn your frustration into change. Report review removals anonymously and help create transparency."
 url: "https://moinsen-dev.github.io"
+baseurl: "/takedown_atlas"
 
-# Build settings
+# Disable Jekyll processing - we use pure HTML
+plugins: []
 markdown: kramdown
-highlighter: rouge
-theme: null
+highlighter: none
 
-# Exclude files from processing
+# Exclude development files
 exclude:
-  - README.md
-  - LICENSE
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - package.json
-  - package-lock.json
-  - backend/
-  - frontend/
-  - infrastructure/
-  - scripts/
-  - takedown-atlas-brand-starter-kit/
-  - test-emails/
-  - .github/
-  - .gitignore
-  - .pre-commit-config.yaml
-  - AGENTS.md
-  - CLAUDE.md
-  - CONTRIBUTORS.md
-  - LICENSE-CHANGELOG.md
-  - State-Tracker.md
-  - prd.md
-
-# Include specific files in the docs folder
-include:
-  - assets/
-  - _config.yml
-
-# SEO and meta
-author: "Takedown Atlas Team"
-twitter:
-  username: takedownatlas
-lang: en
-
-# Plugin settings
-plugins:
-  - jekyll-sitemap
-  - jekyll-seo-tag
-
-# Collections
-collections_dir: docs
-
-# Defaults
-defaults:
-  - scope:
-      path: ""
-    values:
-      layout: default
-      author: "Takedown Atlas Team"
+  - SITE_README.md
+  - architecture.md

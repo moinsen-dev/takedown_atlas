@@ -23,7 +23,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    if: false  # Disabled until CI issues are resolved
+    # Re-enabled to deploy our new user-centric GitHub Pages site
     steps:
       - name: Checkout
         uses: actions/checkout@v4

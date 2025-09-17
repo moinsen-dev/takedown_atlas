@@ -1,6 +1,495 @@
 // Takedown Atlas - Interactive Elements
 
+// Internationalization
+const translations = {
+  de: {
+    // Meta tags
+    "page-title":
+      "Takedown Atlas — Ihre Bewertung wurde entfernt? Sie sind nicht allein.",
+    "page-description":
+      "Wurde Ihre ehrliche Bewertung unfair entfernt? Sie sind nicht allein. Melden Sie anonym, decken Sie Muster auf und schaffen Sie Transparenz. Schließen Sie sich 2.800+ Menschen an.",
+    "og-title":
+      "Takedown Atlas — Ihre Bewertung wurde entfernt? Sie sind nicht allein.",
+    "og-description":
+      "Wurde Ihre ehrliche Bewertung unfair entfernt? Schließen Sie sich 2.800+ Menschen an, die anonym melden und Transparenz schaffen.",
+    "twitter-title":
+      "Takedown Atlas — Ihre Bewertung wurde entfernt? Sie sind nicht allein.",
+    "twitter-description":
+      "Wurde Ihre ehrliche Bewertung unfair entfernt? Schließen Sie sich 2.800+ Menschen an, die anonym melden und Transparenz schaffen.",
+
+    // Navigation
+    "nav-how": "So funktioniert's",
+    "nav-for-you": "Für Sie",
+    "nav-transparency": "Transparenz",
+    "nav-contribute": "Mitmachen",
+
+    // Demo banner
+    "demo-title": "Dies ist eine DEMO-SEITE",
+    "demo-description":
+      "Alle gezeigten Statistiken und Daten sind Platzhalter-Beispiele zur Visualisierung der Projektvision. Diese Plattform befindet sich derzeit in der Entwicklung.",
+    "demo-link": "Echtes Projekt ansehen →",
+
+    // Hero section
+    "hero-title": "Ihre Bewertung wurde entfernt?<br>Sie sind nicht allein.",
+    "hero-subtitle":
+      "Täglich werden tausende Bewertungen von Google entfernt. Einige Entfernungen sind berechtigt, andere nicht. Helfen Sie uns, diese Muster zu erfassen und Transparenz in Takedown-Praktiken zu bringen.",
+    "stat-reviews": "Bewertungen dokumentiert",
+    "stat-verified": "Verifiziert authentisch",
+    "stat-countries": "Länder abgedeckt",
+    "stat-businesses": "Unternehmen analysiert",
+    "btn-report": "Entfernung melden",
+    "btn-explore": "Karte erkunden",
+    "hero-privacy":
+      "Ihr Datenschutz ist geschützt. Alle Meldungen werden vor Veröffentlichung anonymisiert.",
+    "hero-disclaimer":
+      "<strong>Hinweis:</strong> Dies ist eine Visions-Demo. Alle gezeigten Statistiken sind Beispiele zur Veranschaulichung des Plattform-Potentials. Die eigentliche Plattform befindet sich derzeit in der Entwicklung.",
+
+    // Map section
+    "map-title": "Live Vorfälle Karte",
+    "map-subtitle":
+      "Erkunden Sie gemeldete Bewertungsentfernungen in Echtzeit. Klicken Sie auf die Markierungen für Details.",
+    "filter-all": "Alle",
+    "filter-restaurants": "Restaurants",
+    "filter-hotels": "Hotels",
+    "filter-retail": "Einzelhandel",
+    "map-search-placeholder": "Stadt suchen...",
+    "map-loading": "Karte wird geladen...",
+    "map-legend-title": "Legende",
+    "legend-restaurant": "Restaurant",
+    "legend-hotel": "Hotel",
+    "legend-retail": "Einzelhandel",
+    "legend-verified": "Verifiziert",
+    "map-stat-incidents": "Vorfälle sichtbar",
+    "map-stat-cities": "Städte",
+    "map-stat-verified": "Verifiziert",
+
+    // How It Works
+    "how-title": "So funktioniert Takedown Atlas",
+    "how-subtitle":
+      "Ein einfacher, datenschutzfreundlicher Prozess zur Dokumentation und Verifizierung von Bewertungsentfernungen",
+    "step1-title": "Sie melden",
+    "step1-desc":
+      "Leiten Sie die Entfernungs-E-Mail von Google weiter oder laden Sie Dokumente manuell hoch. Ihre Identität bleibt privat.",
+    "step2-title": "Wir verifizieren",
+    "step2-desc":
+      "Unser Verifizierungssystem prüft die E-Mail-Authentizität mit DKIM/DMARC und geschulte Moderatoren überprüfen jede Einreichung.",
+    "step3-title": "Daten werden öffentlich",
+    "step3-desc":
+      "Verifizierte Vorfälle erscheinen auf unserer öffentlichen Karte und im Datensatz, wobei alle persönlichen Informationen zum Schutz der Privatsphäre entfernt werden.",
+    "step4-title": "Muster entstehen",
+    "step4-desc":
+      "Forscher, Journalisten und die Öffentlichkeit können Trends analysieren und Unternehmen für ihre Takedown-Praktiken zur Verantwortung ziehen.",
+
+    // Personas
+    "personas-title": "Was Takedown Atlas für Sie bedeutet",
+    "tab-reviewer": "Ihre Bewertung wurde entfernt",
+    "tab-business": "Sie besitzen ein Unternehmen",
+    "tab-researcher": "Sie forschen oder berichten",
+    "tab-supporter": "Sie möchten helfen",
+    "reviewer-title": "Ihre Erfahrung zählt",
+    "reviewer-intro":
+      "In dem Moment, wenn Sie die E-Mail erhalten, dass Ihre ehrliche Bewertung entfernt wurde — wir wissen, wie sich das anfühlt. Frustrierend. Unfair. Als würde Ihre Stimme nicht zählen. Aber hier ist die Sache: <strong>Ihre Erfahrung zählt</strong>, und Sie sind definitiv nicht allein.",
+    "reviewer-subtitle": "Verwandeln Sie Ihren Frust in Veränderung:",
+    "reviewer-point1":
+      "<strong>Teilen Sie Ihre Geschichte:</strong> Leiten Sie uns diese Entfernungs-E-Mail weiter — es dauert 2 Minuten",
+    "reviewer-point2":
+      "<strong>Bleiben Sie völlig anonym:</strong> Ihr Datenschutz ist bei uns bombensicher",
+    "reviewer-point3":
+      "<strong>Werden Sie Teil einer größeren Bewegung:</strong> Helfen Sie dabei, unfaire Entfernungsmuster aufzudecken",
+    "reviewer-point4":
+      "<strong>Stärken Sie andere:</strong> Ihre Meldung stärkt den Schutz für alle Bewertenden",
+    "reviewer-btn1": "Entfernung melden",
+    "reviewer-btn2": "Über Datenschutz erfahren",
+    "reviewer-stat1": "Menschen wie Sie haben ihre Geschichten geteilt",
+    "reviewer-stat2": "Spüren, dass ihre Stimme jetzt zählt",
+  },
+  en: {
+    // Meta tags
+    "page-title": "Takedown Atlas — Your Review Was Removed? You're Not Alone.",
+    "page-description":
+      "Had your honest review removed unfairly? You're not alone. Report anonymously, uncover patterns, and help create transparency in review takedown practices. Join 2,800+ people making a difference.",
+    "og-title": "Takedown Atlas — Your Review Was Removed? You're Not Alone.",
+    "og-description":
+      "Had your honest review removed unfairly? Join 2,800+ people reporting anonymously and creating transparency in review practices.",
+    "twitter-title":
+      "Takedown Atlas — Your Review Was Removed? You're Not Alone.",
+    "twitter-description":
+      "Had your honest review removed unfairly? Join 2,800+ people reporting anonymously and creating transparency in review practices.",
+
+    // Navigation
+    "nav-how": "How It Works",
+    "nav-for-you": "For You",
+    "nav-transparency": "Transparency",
+    "nav-contribute": "Contribute",
+
+    // Demo banner
+    "demo-title": "This is a DEMO PAGE",
+    "demo-description":
+      "All statistics and data shown are placeholder examples to visualize the project vision. This platform is currently in development.",
+    "demo-link": "View Real Project →",
+
+    // Hero section
+    "hero-title": "Your Review Was Removed?<br>You're Not Alone.",
+    "hero-subtitle":
+      "Thousands of reviews are removed from Google every day. Some removals are justified, others are not. Help us map these patterns and bring transparency to takedown practices.",
+    "stat-reviews": "Reviews Documented",
+    "stat-verified": "Verified Authentic",
+    "stat-countries": "Countries Covered",
+    "stat-businesses": "Businesses Analyzed",
+    "btn-report": "Report a Removal",
+    "btn-explore": "Explore the Map",
+    "hero-privacy":
+      "Your privacy is protected. All reports are anonymized before publication.",
+    "hero-disclaimer":
+      "<strong>Note:</strong> This is a vision demo. All statistics shown are examples to illustrate the platform's potential. The actual platform is currently in development.",
+
+    // Map section
+    "map-title": "Live Incidents Map",
+    "map-subtitle":
+      "Explore reported review removals in real-time. Click on markers for details.",
+    "filter-all": "All",
+    "filter-restaurants": "Restaurants",
+    "filter-hotels": "Hotels",
+    "filter-retail": "Retail",
+    "map-search-placeholder": "Search location...",
+    "map-loading": "Loading map...",
+    "map-legend-title": "Legend",
+    "legend-restaurant": "Restaurant",
+    "legend-hotel": "Hotel",
+    "legend-retail": "Retail",
+    "legend-verified": "Verified",
+    "map-stat-incidents": "Incidents visible",
+    "map-stat-cities": "Cities",
+    "map-stat-verified": "Verified",
+
+    // How It Works
+    "how-title": "How Takedown Atlas Works",
+    "how-subtitle":
+      "A simple, privacy-first process to document and verify review removal incidents",
+    "step1-title": "You Report",
+    "step1-desc":
+      "Forward the removal email you received from Google, or upload documents manually. Your identity stays private.",
+    "step2-title": "We Verify",
+    "step2-desc":
+      "Our verification system checks email authenticity using DKIM/DMARC and trained moderators review each submission.",
+    "step3-title": "Data Goes Public",
+    "step3-desc":
+      "Verified incidents appear on our public map and dataset, with all personal information removed to protect privacy.",
+    "step4-title": "Patterns Emerge",
+    "step4-desc":
+      "Researchers, journalists, and the public can analyze trends and hold businesses accountable for their takedown practices.",
+
+    // Personas
+    "personas-title": "What Takedown Atlas Means for You",
+    "tab-reviewer": "Your Review Was Removed",
+    "tab-business": "You Own a Business",
+    "tab-researcher": "You Research or Report",
+    "tab-supporter": "You Want to Help",
+    "reviewer-title": "Your Experience Matters",
+    "reviewer-intro":
+      "That moment when you get the email saying your honest review was removed — we know how that feels. Frustrating. Unfair. Like your voice doesn't count. But here's the thing: <strong>your experience matters</strong>, and you're definitely not alone.",
+    "reviewer-subtitle": "Turn Your Frustration Into Change:",
+    "reviewer-point1":
+      "<strong>Share your story:</strong> Forward us that removal email — it takes 2 minutes",
+    "reviewer-point2":
+      "<strong>Stay completely anonymous:</strong> Your privacy is bulletproof with us",
+    "reviewer-point3":
+      "<strong>Join a bigger movement:</strong> Help expose unfair removal patterns",
+    "reviewer-point4":
+      "<strong>Empower others:</strong> Your report strengthens protection for all reviewers",
+    "reviewer-btn1": "Report Your Removal",
+    "reviewer-btn2": "Learn About Privacy",
+    "reviewer-stat1": "People like you have shared their stories",
+    "reviewer-stat2": "Feel their voice matters now",
+  },
+};
+
+let currentLang = "de"; // Default to German
+
+function updateLanguage(lang) {
+  currentLang = lang;
+  const elements = document.querySelectorAll("[data-i18n]");
+
+  elements.forEach((element) => {
+    const key = element.getAttribute("data-i18n");
+    if (translations[lang] && translations[lang][key]) {
+      if (element.tagName === "META") {
+        element.setAttribute("content", translations[lang][key]);
+      } else {
+        element.innerHTML = translations[lang][key];
+      }
+    }
+  });
+
+  // Update document title
+  document.title = translations[lang]["page-title"] || document.title;
+
+  // Update HTML lang attribute
+  document.documentElement.lang = lang;
+
+  // Update active language button
+  document.querySelectorAll(".lang-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+  });
+
+  // Save language preference
+  localStorage.setItem("preferred-lang", lang);
+}
+
+function initializeLanguage() {
+  // Check for saved language preference or use German as default
+  const savedLang = localStorage.getItem("preferred-lang") || "de";
+  updateLanguage(savedLang);
+
+  // Add event listeners to language buttons
+  document.querySelectorAll(".lang-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const lang = btn.getAttribute("data-lang");
+      updateLanguage(lang);
+    });
+  });
+}
+
+// Demo data for the interactive map
+const demoIncidents = [
+  {
+    id: 1,
+    lat: 52.520008,
+    lng: 13.404954,
+    city: "Berlin",
+    business: "Restaurant Schnitzelhaus",
+    category: "restaurant",
+    date: "2025-01-15",
+    reason: "Alleged defamation",
+    verified: true,
+    count: 3,
+  },
+  {
+    id: 2,
+    lat: 48.137154,
+    lng: 11.576124,
+    city: "München",
+    business: "Hotel Bayerischer Hof",
+    category: "hotel",
+    date: "2025-01-18",
+    reason: "Privacy violation",
+    verified: true,
+    count: 2,
+  },
+  {
+    id: 3,
+    lat: 53.551086,
+    lng: 9.993682,
+    city: "Hamburg",
+    business: "Fischmarkt Restaurant",
+    category: "restaurant",
+    date: "2025-01-22",
+    reason: "False information",
+    verified: false,
+    count: 1,
+  },
+  {
+    id: 4,
+    lat: 50.935173,
+    lng: 6.953101,
+    city: "Köln",
+    business: "MediaMarkt",
+    category: "retail",
+    date: "2025-02-01",
+    reason: "Trademark infringement",
+    verified: true,
+    count: 4,
+  },
+  {
+    id: 5,
+    lat: 51.050407,
+    lng: 13.737262,
+    city: "Dresden",
+    business: "Hotel Suitess",
+    category: "hotel",
+    date: "2025-02-05",
+    reason: "Defamatory content",
+    verified: true,
+    count: 2,
+  },
+  {
+    id: 6,
+    lat: 49.45203,
+    lng: 11.076751,
+    city: "Nürnberg",
+    business: "Bratwurst Röslein",
+    category: "restaurant",
+    date: "2025-02-08",
+    reason: "False claims",
+    verified: true,
+    count: 1,
+  },
+  {
+    id: 7,
+    lat: 48.775846,
+    lng: 9.182932,
+    city: "Stuttgart",
+    business: "Porsche Museum Shop",
+    category: "retail",
+    date: "2025-02-12",
+    reason: "Privacy concerns",
+    verified: true,
+    count: 3,
+  },
+  {
+    id: 8,
+    lat: 51.227741,
+    lng: 6.773456,
+    city: "Düsseldorf",
+    business: "Breidenbacher Hof",
+    category: "hotel",
+    date: "2025-02-15",
+    reason: "Alleged defamation",
+    verified: true,
+    count: 2,
+  },
+];
+
+let map = null;
+let markersGroup = null;
+let currentFilter = "all";
+
+function initializeMap() {
+  // Initialize the map centered on Germany
+  map = L.map("demo-map").setView([51.1657, 10.4515], 6);
+
+  // Add OpenStreetMap tiles
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18,
+  }).addTo(map);
+
+  // Initialize marker cluster group
+  markersGroup = L.markerClusterGroup({
+    maxClusterRadius: 50,
+    iconCreateFunction: function (cluster) {
+      const count = cluster.getChildCount();
+      let className = "marker-cluster-small";
+      if (count > 10) className = "marker-cluster-large";
+      else if (count > 5) className = "marker-cluster-medium";
+
+      return new L.DivIcon({
+        html: `<div><span>${count}</span></div>`,
+        className: `marker-cluster ${className}`,
+        iconSize: new L.Point(40, 40),
+      });
+    },
+  });
+
+  // Add markers to the map
+  updateMapMarkers();
+  map.addLayer(markersGroup);
+
+  // Add filter event listeners
+  document.querySelectorAll(".filter-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      document
+        .querySelectorAll(".filter-btn")
+        .forEach((b) => b.classList.remove("active"));
+      this.classList.add("active");
+      currentFilter = this.getAttribute("data-filter");
+      updateMapMarkers();
+    });
+  });
+
+  // Hide loading indicator
+  document.querySelector(".map-loading").style.display = "none";
+}
+
+function updateMapMarkers() {
+  if (!markersGroup) return;
+
+  markersGroup.clearLayers();
+
+  const filteredIncidents = demoIncidents.filter(
+    (incident) =>
+      currentFilter === "all" || incident.category === currentFilter,
+  );
+
+  filteredIncidents.forEach((incident) => {
+    const markerColor = getMarkerColor(incident.category);
+    const marker = L.circleMarker([incident.lat, incident.lng], {
+      radius: Math.max(8, Math.min(20, incident.count * 3)),
+      fillColor: markerColor,
+      color: incident.verified ? "#1da7a1" : "#fbbf24",
+      weight: incident.verified ? 3 : 2,
+      opacity: 1,
+      fillOpacity: 0.8,
+    });
+
+    const popupContent = `
+      <div class="incident-popup">
+        <h4>${incident.business}</h4>
+        <div class="incident-meta">
+          📍 ${incident.city} • 📅 ${formatDate(incident.date)} • ${
+            incident.verified ? "✅ Verifiziert" : "⏳ Prüfung"
+          }
+        </div>
+        <div class="incident-reason">
+          <strong>Grund:</strong> ${incident.reason}
+        </div>
+        <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #6b7280;">
+          ${incident.count} ${incident.count === 1 ? "Vorfall" : "Vorfälle"}
+        </div>
+      </div>
+    `;
+
+    marker.bindPopup(popupContent, {
+      maxWidth: 300,
+      className: "custom-popup",
+    });
+
+    markersGroup.addLayer(marker);
+  });
+}
+
+function getMarkerColor(category) {
+  const colors = {
+    restaurant: "#ff6b35",
+    hotel: "#4a90e2",
+    retail: "#2ecc71",
+  };
+  return colors[category] || "#6b7280";
+}
+
+function formatDate(dateString) {
+  return new Date(dateString).toLocaleDateString("de-DE");
+}
+
+// Demo banner dismiss function
+function dismissDemoBanner() {
+  const banner = document.querySelector(".demo-banner");
+  if (banner) {
+    banner.classList.add("hidden");
+    // Save preference to sessionStorage
+    sessionStorage.setItem("demoBannerDismissed", "true");
+  }
+}
+
+// Check if banner was previously dismissed
 document.addEventListener("DOMContentLoaded", function () {
+  // Initialize internationalization
+  initializeLanguage();
+
+  // Initialize map if Leaflet is available and map container exists
+  if (typeof L !== "undefined" && document.getElementById("demo-map")) {
+    // Small delay to ensure DOM is fully rendered
+    setTimeout(initializeMap, 100);
+  }
+
+  const wasDismissed = sessionStorage.getItem("demoBannerDismissed");
+  if (wasDismissed === "true") {
+    const banner = document.querySelector(".demo-banner");
+    if (banner) {
+      banner.classList.add("hidden");
+    }
+  }
   // Smooth scrolling for navigation links
   const navLinks = document.querySelectorAll('a[href^="#"]');
   navLinks.forEach((link) => {

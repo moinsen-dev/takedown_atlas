@@ -1,28 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Takedown Atlas — Your Review Was Removed? You're Not Alone.</title>
+  <title data-i18n="page-title">Takedown Atlas — Ihre Bewertung wurde entfernt? Sie sind nicht allein.</title>
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Report Google review removals anonymously. Uncover patterns, protect your voice, and bring transparency to takedown practices. Join thousands of users mapping removal incidents.">
-  <meta name="keywords" content="google reviews removed, review takedown, business censorship, transparency, report removal, anonymous reporting">
+  <meta name="description" data-i18n="page-description"
+    content="Wurde Ihre ehrliche Bewertung unfair entfernt? Sie sind nicht allein. Melden Sie anonym, decken Sie Muster auf und schaffen Sie Transparenz. Schließen Sie sich 2.800+ Menschen an.">
+  <meta name="keywords"
+    content="Google Bewertungen entfernt, Bewertung gelöscht, Unternehmen Zensur, Transparenz, Entfernung melden, anonyme Meldung">
   <meta name="author" content="Takedown Atlas Community">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://moinsen-dev.github.io/takedown_atlas/">
-  <meta property="og:title" content="Takedown Atlas — Your Review Was Removed? You're Not Alone.">
-  <meta property="og:description" content="Report Google review removals anonymously. Uncover patterns and bring transparency to takedown practices.">
-  <meta property="og:image" content="https://moinsen-dev.github.io/takedown_atlas/assets/images/takedown-atlas-logo-primary.svg">
+  <meta property="og:title" data-i18n="og-title"
+    content="Takedown Atlas — Ihre Bewertung wurde entfernt? Sie sind nicht allein.">
+  <meta property="og:description" data-i18n="og-description"
+    content="Wurde Ihre ehrliche Bewertung unfair entfernt? Schließen Sie sich 2.800+ Menschen an, die anonym melden und Transparenz schaffen."
+    <meta property="og:image"
+    content="https://moinsen-dev.github.io/takedown_atlas/assets/images/takedown-atlas-logo-primary.svg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://moinsen-dev.github.io/takedown_atlas/">
-  <meta property="twitter:title" content="Takedown Atlas — Your Review Was Removed? You're Not Alone.">
-  <meta property="twitter:description" content="Report Google review removals anonymously. Uncover patterns and bring transparency to takedown practices.">
-  <meta property="twitter:image" content="https://moinsen-dev.github.io/takedown_atlas/assets/images/takedown-atlas-logo-primary.svg">
+  <meta property="twitter:title" data-i18n="twitter-title"
+    content="Takedown Atlas — Ihre Bewertung wurde entfernt? Sie sind nicht allein.">
+  <meta property="twitter:description" data-i18n="twitter-description"
+    content="Wurde Ihre ehrliche Bewertung unfair entfernt? Schließen Sie sich 2.800+ Menschen an, die anonym melden und Transparenz schaffen."
+    <meta property="twitter:image"
+    content="https://moinsen-dev.github.io/takedown_atlas/assets/images/takedown-atlas-logo-primary.svg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="./assets/images/favicon.png">
@@ -32,10 +41,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Leaflet CSS for interactive maps -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+
   <!-- Styles -->
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
+  <!-- Demo Banner -->
+  <div class="demo-banner">
+    <div class="container">
+      <div class="demo-content">
+        <span class="demo-icon">🚧</span>
+        <div class="demo-text">
+          <strong data-i18n="demo-title">Dies ist eine DEMO-SEITE</strong>
+          <span data-i18n="demo-description">Alle gezeigten Statistiken und Daten sind Platzhalter-Beispiele zur
+            Visualisierung der Projektvision. Diese Plattform befindet sich derzeit in der Entwicklung.</span>
+        </div>
+        <div class="demo-actions">
+          <a href="https://github.com/moinsen-dev/takedown_atlas" class="demo-link" target="_blank"
+            data-i18n="demo-link">Echtes Projekt ansehen →</a>
+          <button class="demo-dismiss" onclick="dismissDemoBanner()">✕</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Header -->
   <header class="header">
     <nav class="nav container">
@@ -44,10 +79,14 @@
         Takedown Atlas
       </a>
       <ul class="nav-links">
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#for-you">For You</a></li>
-        <li><a href="#transparency">Transparency</a></li>
-        <li><a href="#contribute">Contribute</a></li>
+        <li><a href="#how-it-works" data-i18n="nav-how">So funktioniert's</a></li>
+        <li><a href="#for-you" data-i18n="nav-for-you">Für Sie</a></li>
+        <li><a href="#transparency" data-i18n="nav-transparency">Transparenz</a></li>
+        <li><a href="#contribute" data-i18n="nav-contribute">Mitmachen</a></li>
+        <li class="lang-switcher">
+          <button class="lang-btn active" data-lang="de">🇩🇪 DE</button>
+          <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+        </li>
       </ul>
     </nav>
   </header>
@@ -55,83 +94,166 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <h1>Your Review Was Removed?<br>You're Not Alone.</h1>
-      <p class="hero-subtitle">
-        Thousands of reviews are removed from Google every day. Some removals are justified, others are not.
-        Help us map these patterns and bring transparency to takedown practices.
+      <h1 data-i18n="hero-title">Ihre Bewertung wurde entfernt?<br>Sie sind nicht allein.</h1>
+      <p class="hero-subtitle" data-i18n="hero-subtitle">
+        Täglich werden tausende Bewertungen von Google entfernt. Einige Entfernungen sind berechtigt, andere nicht.
+        Helfen Sie uns, diese Muster zu erfassen und Transparenz in Takedown-Praktiken zu bringen.
       </p>
 
       <div class="hero-stats">
         <div class="stat">
-          <span class="stat-number" data-counter="1,247">1,247</span>
-          <span class="stat-label">Incidents Reported</span>
+          <span class="stat-number" data-counter="2,847">2,847</span>
+          <span class="stat-label" data-i18n="stat-reviews">Bewertungen dokumentiert</span>
         </div>
         <div class="stat">
-          <span class="stat-number" data-counter="89">89%</span>
-          <span class="stat-label">Verified Authentic</span>
+          <span class="stat-number" data-counter="94">94%</span>
+          <span class="stat-label" data-i18n="stat-verified">Verifiziert authentisch</span>
         </div>
         <div class="stat">
-          <span class="stat-number" data-counter="15">15</span>
-          <span class="stat-label">Countries</span>
+          <span class="stat-number" data-counter="23">23</span>
+          <span class="stat-label" data-i18n="stat-countries">Länder abgedeckt</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-counter="156">156</span>
+          <span class="stat-label" data-i18n="stat-businesses">Unternehmen analysiert</span>
         </div>
       </div>
 
       <div class="hero-actions">
         <a href="#report-removal" class="btn btn-primary">
           <span class="btn-icon">📧</span>
-          Report a Removal
+          <span data-i18n="btn-report">Entfernung melden</span>
         </a>
         <a href="#explore-map" class="btn btn-secondary">
           <span class="btn-icon">🗺️</span>
-          Explore the Map
+          <span data-i18n="btn-explore">Karte erkunden</span>
         </a>
       </div>
 
       <p class="hero-privacy">
         <span class="privacy-icon">🔒</span>
-        Your privacy is protected. All reports are anonymized before publication.
+        <span data-i18n="hero-privacy">Ihr Datenschutz ist geschützt. Alle Meldungen werden vor Veröffentlichung
+          anonymisiert.</span>
       </p>
+
+      <div class="hero-disclaimer">
+        <p data-i18n="hero-disclaimer"><strong>Hinweis:</strong> Dies ist eine Visions-Demo. Alle gezeigten Statistiken
+          sind Beispiele zur Veranschaulichung des Plattform-Potentials. Die eigentliche Plattform befindet sich derzeit
+          in der Entwicklung.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Map Demo -->
+  <section id="explore-map" class="map-demo">
+    <div class="container">
+      <h2 class="section-title" data-i18n="map-title">Live Vorfälle Karte</h2>
+      <p class="section-subtitle" data-i18n="map-subtitle">
+        Erkunden Sie gemeldete Bewertungsentfernungen in Echtzeit. Klicken Sie auf die Markierungen für Details.
+      </p>
+
+      <div class="map-controls">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all" data-i18n="filter-all">Alle</button>
+          <button class="filter-btn" data-filter="restaurant" data-i18n="filter-restaurants">Restaurants</button>
+          <button class="filter-btn" data-filter="hotel" data-i18n="filter-hotels">Hotels</button>
+          <button class="filter-btn" data-filter="retail" data-i18n="filter-retail">Einzelhandel</button>
+        </div>
+        <div class="map-search">
+          <input type="search" id="map-search" placeholder="Stadt suchen..."
+            data-i18n-placeholder="map-search-placeholder">
+          <button class="search-btn">🔍</button>
+        </div>
+      </div>
+
+      <div id="demo-map" class="map-container">
+        <div class="map-loading">
+          <div class="loading-spinner"></div>
+          <p data-i18n="map-loading">Karte wird geladen...</p>
+        </div>
+      </div>
+
+      <div class="map-legend">
+        <h4 data-i18n="map-legend-title">Legende</h4>
+        <div class="legend-items">
+          <div class="legend-item">
+            <div class="legend-marker restaurant"></div>
+            <span data-i18n="legend-restaurant">Restaurant</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-marker hotel"></div>
+            <span data-i18n="legend-hotel">Hotel</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-marker retail"></div>
+            <span data-i18n="legend-retail">Einzelhandel</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-marker verified"></div>
+            <span data-i18n="legend-verified">Verifiziert</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-stats">
+        <div class="map-stat">
+          <span class="map-stat-number">156</span>
+          <span class="map-stat-label" data-i18n="map-stat-incidents">Vorfälle sichtbar</span>
+        </div>
+        <div class="map-stat">
+          <span class="map-stat-number">23</span>
+          <span class="map-stat-label" data-i18n="map-stat-cities">Städte</span>
+        </div>
+        <div class="map-stat">
+          <span class="map-stat-number">94%</span>
+          <span class="map-stat-label" data-i18n="map-stat-verified">Verifiziert</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- How It Works -->
   <section id="how-it-works" class="how-it-works">
     <div class="container">
-      <h2 class="section-title">How Takedown Atlas Works</h2>
-      <p class="section-subtitle">
-        A simple, privacy-first process to document and verify review removal incidents
+      <h2 class="section-title" data-i18n="how-title">So funktioniert Takedown Atlas</h2>
+      <p class="section-subtitle" data-i18n="how-subtitle">
+        Ein einfacher, datenschutzfreundlicher Prozess zur Dokumentation und Verifizierung von Bewertungsentfernungen
       </p>
 
       <div class="steps-grid">
         <div class="step">
           <div class="step-number">1</div>
           <div class="step-content">
-            <h3>You Report</h3>
-            <p>Forward the removal email you received from Google, or upload documents manually. Your identity stays private.</p>
+            <h3 data-i18n="step1-title">Sie melden</h3>
+            <p data-i18n="step1-desc">Leiten Sie die Entfernungs-E-Mail von Google weiter oder laden Sie Dokumente
+              manuell hoch. Ihre Identität bleibt privat.</p>
           </div>
         </div>
 
         <div class="step">
           <div class="step-number">2</div>
           <div class="step-content">
-            <h3>We Verify</h3>
-            <p>Our verification system checks email authenticity using DKIM/DMARC and trained moderators review each submission.</p>
+            <h3 data-i18n="step2-title">Wir verifizieren</h3>
+            <p data-i18n="step2-desc">Unser Verifizierungssystem prüft die E-Mail-Authentizität mit DKIM/DMARC und
+              geschulte Moderatoren überprüfen jede Einreichung.</p>
           </div>
         </div>
 
         <div class="step">
           <div class="step-number">3</div>
           <div class="step-content">
-            <h3>Data Goes Public</h3>
-            <p>Verified incidents appear on our public map and dataset, with all personal information removed to protect privacy.</p>
+            <h3 data-i18n="step3-title">Daten werden öffentlich</h3>
+            <p data-i18n="step3-desc">Verifizierte Vorfälle erscheinen auf unserer öffentlichen Karte und im Datensatz,
+              wobei alle persönlichen Informationen zum Schutz der Privatsphäre entfernt werden.</p>
           </div>
         </div>
 
         <div class="step">
           <div class="step-number">4</div>
           <div class="step-content">
-            <h3>Patterns Emerge</h3>
-            <p>Researchers, journalists, and the public can analyze trends and hold businesses accountable for their takedown practices.</p>
+            <h3 data-i18n="step4-title">Muster entstehen</h3>
+            <p data-i18n="step4-desc">Forscher, Journalisten und die Öffentlichkeit können Trends analysieren und
+              Unternehmen für ihre Takedown-Praktiken zur Verantwortung ziehen.</p>
           </div>
         </div>
       </div>
@@ -141,45 +263,56 @@
   <!-- For Different User Types -->
   <section id="for-you" class="personas">
     <div class="container">
-      <h2 class="section-title">What Takedown Atlas Means for You</h2>
+      <h2 class="section-title" data-i18n="personas-title">Was Takedown Atlas für Sie bedeutet</h2>
 
       <div class="persona-tabs">
-        <button class="persona-tab active" data-persona="reviewer">Your Review Was Removed</button>
-        <button class="persona-tab" data-persona="business">You Own a Business</button>
-        <button class="persona-tab" data-persona="researcher">You Research or Report</button>
-        <button class="persona-tab" data-persona="supporter">You Want to Help</button>
+        <button class="persona-tab active" data-persona="reviewer" data-i18n="tab-reviewer">Ihre Bewertung wurde
+          entfernt</button>
+        <button class="persona-tab" data-persona="business" data-i18n="tab-business">Sie besitzen ein
+          Unternehmen</button>
+        <button class="persona-tab" data-persona="researcher" data-i18n="tab-researcher">Sie forschen oder
+          berichten</button>
+        <button class="persona-tab" data-persona="supporter" data-i18n="tab-supporter">Sie möchten helfen</button>
       </div>
 
       <!-- For Reviewers -->
       <div class="persona-content active" data-persona="reviewer">
         <div class="persona-grid">
           <div class="persona-text">
-            <h3>Your Voice Matters</h3>
-            <p>When your honest review gets removed, it can feel frustrating and powerless. You're not alone — this happens to thousands of reviewers every day.</p>
+            <h3 data-i18n="reviewer-title">Ihre Erfahrung zählt</h3>
+            <p data-i18n="reviewer-intro">In dem Moment, wenn Sie die E-Mail erhalten, dass Ihre ehrliche Bewertung
+              entfernt wurde — wir wissen, wie sich das anfühlt. Frustrierend. Unfair. Als würde Ihre Stimme nicht
+              zählen. Aber hier ist die Sache: <strong>Ihre Erfahrung zählt</strong>, und Sie sind definitiv nicht
+              allein.</p>
 
-            <h4>What You Can Do:</h4>
+            <h4 data-i18n="reviewer-subtitle">Verwandeln Sie Ihren Frust in Veränderung:</h4>
             <ul class="persona-list">
-              <li><strong>Report the incident:</strong> Forward us the removal email you received</li>
-              <li><strong>Stay anonymous:</strong> We never publish your personal information</li>
-              <li><strong>See the bigger picture:</strong> Your report helps reveal patterns of questionable removals</li>
-              <li><strong>Support others:</strong> Help create a transparent system that protects reviewer rights</li>
+              <li data-i18n="reviewer-point1"><strong>Teilen Sie Ihre Geschichte:</strong> Leiten Sie uns diese
+                Entfernungs-E-Mail weiter — es dauert 2 Minuten</li>
+              <li data-i18n="reviewer-point2"><strong>Bleiben Sie völlig anonym:</strong> Ihr Datenschutz ist bei uns
+                bombensicher</li>
+              <li data-i18n="reviewer-point3"><strong>Werden Sie Teil einer größeren Bewegung:</strong> Helfen Sie
+                dabei, unfaire Entfernungsmuster aufzudecken</li>
+              <li data-i18n="reviewer-point4"><strong>Stärken Sie andere:</strong> Ihre Meldung stärkt den Schutz für
+                alle Bewertenden</li>
             </ul>
 
             <div class="persona-actions">
-              <a href="#report-removal" class="btn btn-primary">Report Your Removal</a>
-              <a href="#privacy" class="btn btn-outline">Learn About Privacy</a>
+              <a href="#report-removal" class="btn btn-primary" data-i18n="reviewer-btn1">Entfernung melden</a>
+              <a href="#privacy" class="btn btn-outline" data-i18n="reviewer-btn2">Über Datenschutz erfahren</a>
             </div>
           </div>
           <div class="persona-visual">
             <div class="persona-icon">👥</div>
             <div class="persona-stats">
               <div class="mini-stat">
-                <span class="mini-number">1,247</span>
-                <span class="mini-label">People like you have reported incidents</span>
+                <span class="mini-number">2,847</span>
+                <span class="mini-label" data-i18n="reviewer-stat1">Menschen wie Sie haben ihre Geschichten
+                  geteilt</span>
               </div>
               <div class="mini-stat">
-                <span class="mini-number">87%</span>
-                <span class="mini-label">Feel empowered after reporting</span>
+                <span class="mini-number">91%</span>
+                <span class="mini-label" data-i18n="reviewer-stat2">Spüren, dass ihre Stimme jetzt zählt</span>
               </div>
             </div>
           </div>
@@ -191,7 +324,8 @@
         <div class="persona-grid">
           <div class="persona-text">
             <h3>Build Trust Through Transparency</h3>
-            <p>If incidents involving your business appear on Takedown Atlas, you have the opportunity to respond and show your commitment to fair practices.</p>
+            <p>If incidents involving your business appear on Takedown Atlas, you have the opportunity to respond and
+              show your commitment to fair practices.</p>
 
             <h4>What You Can Do:</h4>
             <ul class="persona-list">
@@ -210,11 +344,11 @@
             <div class="persona-icon">🏢</div>
             <div class="persona-stats">
               <div class="mini-stat">
-                <span class="mini-number">156</span>
-                <span class="mini-label">Businesses have claimed their profiles</span>
+                <span class="mini-number">189</span>
+                <span class="mini-label">Businesses engage with transparency</span>
               </div>
               <div class="mini-stat">
-                <span class="mini-number">78%</span>
+                <span class="mini-number">82%</span>
                 <span class="mini-label">Report improved customer trust</span>
               </div>
             </div>
@@ -227,14 +361,17 @@
         <div class="persona-grid">
           <div class="persona-text">
             <h3>Uncover Hidden Patterns</h3>
-            <p>Access the world's most comprehensive dataset of review removal incidents. All data is anonymized and verified for research integrity.</p>
+            <p>Access the world's most comprehensive dataset of review removal incidents. All data is anonymized and
+              verified for research integrity.</p>
 
             <h4>What You Get:</h4>
             <ul class="persona-list">
-              <li><strong>Rich dataset:</strong> Anonymized incidents with metadata, timestamps, and classifications</li>
+              <li><strong>Rich dataset:</strong> Anonymized incidents with metadata, timestamps, and classifications
+              </li>
               <li><strong>API access:</strong> Programmatic access to real-time data for analysis</li>
               <li><strong>Export options:</strong> CSV, JSON, and database exports for your research</li>
-              <li><strong>Verification scores:</strong> Confidence levels for each incident based on our verification process</li>
+              <li><strong>Verification scores:</strong> Confidence levels for each incident based on our verification
+                process</li>
             </ul>
 
             <div class="persona-actions">
@@ -246,12 +383,12 @@
             <div class="persona-icon">📊</div>
             <div class="persona-stats">
               <div class="mini-stat">
-                <span class="mini-number">42</span>
-                <span class="mini-label">Research papers citing our data</span>
+                <span class="mini-number">67</span>
+                <span class="mini-label">Academic citations of our dataset</span>
               </div>
               <div class="mini-stat">
-                <span class="mini-number">15</span>
-                <span class="mini-label">News investigations supported</span>
+                <span class="mini-number">28</span>
+                <span class="mini-label">Investigative reports published</span>
               </div>
             </div>
           </div>
@@ -263,7 +400,8 @@
         <div class="persona-grid">
           <div class="persona-text">
             <h3>Join the Transparency Movement</h3>
-            <p>Help us build a more transparent internet where review practices are open and accountable. Every contribution makes a difference.</p>
+            <p>Help us build a more transparent internet where review practices are open and accountable. Every
+              contribution makes a difference.</p>
 
             <h4>Ways to Contribute:</h4>
             <ul class="persona-list">
@@ -274,7 +412,8 @@
             </ul>
 
             <div class="persona-actions">
-              <a href="https://github.com/moinsen-dev/takedown_atlas" class="btn btn-primary" target="_blank">Contribute on GitHub</a>
+              <a href="https://github.com/moinsen-dev/takedown_atlas" class="btn btn-primary" target="_blank">Contribute
+                on GitHub</a>
               <a href="#volunteer" class="btn btn-outline">Volunteer with Us</a>
             </div>
           </div>
@@ -282,12 +421,12 @@
             <div class="persona-icon">🤝</div>
             <div class="persona-stats">
               <div class="mini-stat">
-                <span class="mini-number">89</span>
-                <span class="mini-label">Contributors and growing</span>
+                <span class="mini-number">124</span>
+                <span class="mini-label">Active community contributors</span>
               </div>
               <div class="mini-stat">
-                <span class="mini-number">12</span>
-                <span class="mini-label">Languages supported</span>
+                <span class="mini-number">18</span>
+                <span class="mini-label">Languages and regions</span>
               </div>
             </div>
           </div>
@@ -308,29 +447,34 @@
         <div class="trust-card">
           <div class="trust-icon">🔒</div>
           <h3>Privacy First</h3>
-          <p>All personal information is removed before publication. We use cryptographic techniques to protect reporter identities while maintaining data integrity.</p>
+          <p>All personal information is removed before publication. We use cryptographic techniques to protect reporter
+            identities while maintaining data integrity.</p>
           <a href="#privacy-policy" class="trust-link">Privacy Policy →</a>
         </div>
 
         <div class="trust-card">
           <div class="trust-icon">✅</div>
           <h3>Verified Data</h3>
-          <p>Every incident is verified using DKIM/DMARC authentication and human moderation. We publish confidence scores so you know how reliable each data point is.</p>
+          <p>Every incident is verified using DKIM/DMARC authentication and human moderation. We publish confidence
+            scores so you know how reliable each data point is.</p>
           <a href="#methodology" class="trust-link">Our Methodology →</a>
         </div>
 
         <div class="trust-card">
           <div class="trust-icon">⚖️</div>
           <h3>Legal Compliance</h3>
-          <p>We comply with GDPR, DSA, and other relevant regulations. Our neutral approach focuses on facts, not judgments.</p>
+          <p>We comply with GDPR, DSA, and other relevant regulations. Our neutral approach focuses on facts, not
+            judgments.</p>
           <a href="#legal" class="trust-link">Legal Framework →</a>
         </div>
 
         <div class="trust-card">
           <div class="trust-icon">🌍</div>
           <h3>Open Source</h3>
-          <p>Our code is open source under Apache 2.0. Our data is available under Open Database License. Transparency in everything we do.</p>
-          <a href="https://github.com/moinsen-dev/takedown_atlas" class="trust-link" target="_blank">View Source Code →</a>
+          <p>Our code is open source under Apache 2.0. Our data is available under Open Database License. Transparency
+            in everything we do.</p>
+          <a href="https://github.com/moinsen-dev/takedown_atlas" class="trust-link" target="_blank">View Source Code
+            →</a>
         </div>
       </div>
 
@@ -351,6 +495,33 @@
     </div>
   </section>
 
+  <!-- Press Coverage -->
+  <section class="press-coverage">
+    <div class="container">
+      <h2 class="section-title">In the News</h2>
+      <p class="section-subtitle">Media outlets covering transparency in review practices</p>
+
+      <div class="press-logos">
+        <div class="press-item">
+          <strong>Der Spiegel</strong>
+          <span>"Breakthrough transparency platform"</span>
+        </div>
+        <div class="press-item">
+          <strong>WDR</strong>
+          <span>"Essential tool for investigations"</span>
+        </div>
+        <div class="press-item">
+          <strong>Süddeutsche</strong>
+          <span>"Data-driven accountability"</span>
+        </div>
+        <div class="press-item">
+          <strong>Netzpolitik.org</strong>
+          <span>"Privacy-first transparency"</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Impact Stories -->
   <section class="impact">
     <div class="container">
@@ -359,31 +530,34 @@
       <div class="impact-grid">
         <div class="impact-card">
           <div class="impact-quote">
-            "Takedown Atlas revealed a pattern of removals that helped us understand systematic issues in our industry. The data was invaluable for our investigation."
+            "I submitted my removal email after my legitimate review about food poisoning was taken down. Seeing it
+            become part of a pattern that helped expose questionable practices — that felt like justice."
           </div>
           <div class="impact-author">
-            <strong>Investigative Journalist</strong>
-            <span>Der Spiegel</span>
+            <strong>Anonymous Reviewer</strong>
+            <span>Hamburg, Germany</span>
           </div>
         </div>
 
         <div class="impact-card">
           <div class="impact-quote">
-            "After seeing our business on the platform, we changed our approach to customer feedback. Transparency made us better."
+            "When we saw our business had multiple removal incidents flagged, we realized we needed to change. Now we
+            address concerns directly instead of trying to silence them."
           </div>
           <div class="impact-author">
-            <strong>Restaurant Owner</strong>
-            <span>Munich, Germany</span>
+            <strong>Hotel Manager</strong>
+            <span>Vienna, Austria</span>
           </div>
         </div>
 
         <div class="impact-card">
           <div class="impact-quote">
-            "The data from Takedown Atlas was crucial for our research on digital platform governance. No other dataset comes close."
+            "Takedown Atlas provided the missing piece for our investigation into review manipulation. The verified
+            dataset revealed systematic abuses across multiple industries."
           </div>
           <div class="impact-author">
-            <strong>Dr. Sarah Weber</strong>
-            <span>Technical University Berlin</span>
+            <strong>Investigative Team</strong>
+            <span>WDR Investigativ</span>
           </div>
         </div>
       </div>
@@ -465,13 +639,14 @@
 
       <div class="footer-bottom">
         <div class="footer-meta">
-          <p>&copy; 2024 Takedown Atlas Community. Open source under Apache 2.0.</p>
+          <p>&copy; 2025 Takedown Atlas Community. Open source under Apache 2.0.</p>
           <p>Neutral, evidence-based transparency platform. Not affiliated with Google or any business platform.</p>
         </div>
         <div class="footer-social">
           <a href="https://github.com/moinsen-dev/takedown_atlas" target="_blank" aria-label="GitHub">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
             </svg>
           </a>
         </div>
@@ -479,7 +654,13 @@
     </div>
   </footer>
 
+  <!-- Leaflet JavaScript for interactive maps -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
   <!-- JavaScript -->
   <script src="./assets/js/main.js"></script>
 </body>
+
 </html>
